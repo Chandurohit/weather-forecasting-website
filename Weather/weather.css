@@ -1,0 +1,187 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#city-input {
+    height: 30px; /* Increased height for better usability */
+    margin: 10px 0; /* Added margin for spacing */
+    padding: 10px; /* Added padding for better text visibility */
+    font-size: 1.2em; /* Increased font size for better readability */
+    border: 1px solid #ccc; /* Optional: border for better visibility */
+    border-radius: 5px; /* Optional: rounded corners */
+}
+
+#get-weather-btn {
+    height: 40px; /* Increased height for better usability */
+    margin: 10px 0; /* Added margin for spacing */
+    padding: 10px 20px; /* Added padding for better text visibility */
+    font-size: 1.2em; /* Increased font size for better readability */
+    background-color: rgba(74, 144, 226, 0.9); /* Background color */
+    color: white; /* Text color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Optional: rounded corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+#get-weather-btn:hover {
+    background-color: #FFD700; /* Change background color on hover */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8); /* Darker for better contrast */
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Added shadow for depth */
+}
+
+.navbar h2 {
+    color: #fff;
+    font-size: 1.8em; /* Increased font size */
+}
+
+.nav-right a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+    transition: color 0.3s; /* Smooth color transition */
+}
+
+.nav-right a:hover {
+    color: #FFD700; /* Gold color on hover */
+}
+
+/* Main Container */
+.container {
+    flex-grow: 1; /* Fills the space between header and footer */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0; /* Remove padding */
+    text-align: center;
+    width: 100%; /* Full width */
+}
+
+/* Weather Card */
+.weather-card {
+    background: linear-gradient(to right, rgba(74, 144, 226, 0.9), rgba(255, 87, 34, 0.9));
+    padding: 30px;
+    border-radius: 20px;
+    width: 100%; /* Full width of the container */
+    max-width: 100%; /* Ensure it does not exceed the container */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); /* Deeper shadow for emphasis */
+    color: #fff;
+    text-align: center;
+    transition: transform 0.3s; /* Added scale effect on hover */
+}
+
+.weather-card:hover {
+    transform: scale(1.02); /* Slightly enlarge on hover */
+}
+
+.weather-card h1 {
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+/* Forecast Container */
+#forecast-container {
+    display: flex;
+    justify-content: center; /* Center items horizontally */
+    margin: 20px 0;
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+    padding: 0; /* Remove padding */
+    width: 100%; /* Full width */
+}
+
+/* Forecast Day */
+.forecast-day {
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.2), rgba(74, 144, 226, 0.9));
+    padding: 30px; /* Increased padding for more space */
+    border-radius: 15px;
+    width: 250px; /* Width of each forecast item */
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+    margin: 0 10px; /* Centered with equal margin on left and right */
+    transition: transform 0.3s; /* Added transition for scaling */
+}
+
+.forecast-day:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+}
+
+.forecast-day img {
+    width: 70px; /* Increased image size */
+    height: 70px;
+}
+
+.forecast-day h3 {
+    margin-bottom: 15px; /* Increased margin for better spacing */
+    font-size: 1.5em; /* Increased font size for better readability */
+}
+
+.forecast-day p {
+    margin: 10px 0; /* Increased margin for better spacing */
+    font-size: 1.3em; /* Increased font size for better readability */
+}
+/* Footer */
+.footer {
+    background-color: rgba(0, 0, 0, 0.9); /* Darker footer for contrast */
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar h2 {
+        font-size: 1.5em; /* Adjust font size for smaller screens */
+    }
+
+    .weather-card {
+        width: 95%; /* Adjust width for smaller screens */
+    }
+
+    #forecast-container {
+        flex-direction: column; /* Stack forecast items vertically on smaller screens */
+        align-items: center; /* Center align items */
+    }
+
+    .forecast-day {
+        width: 90%; /* Full width on smaller screens */
+        margin-bottom: 10px; /* Reduced margin for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .weather-card {
+        padding: 20px; /* Reduced padding for smaller screens */
+    }
+
+    .forecast-day {
+        padding: 15px; /* Reduced padding for smaller screens */
+    }
+}

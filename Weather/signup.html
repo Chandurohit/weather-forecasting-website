@@ -1,0 +1,154 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Weather Forecast</title>
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <h2>Create Your Account</h2>
+
+            <form id="signup-form">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter username" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter email" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter password" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm password" required>
+                </div>
+
+                <button type="submit">Sign Up</button>
+            </form>
+
+            <p>Already have an account? <a href="login.html">Log In</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Simulate signup validation (you can replace this with real backend registration logic)
+        document.getElementById('signup-form').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent form submission
+
+            const username = document.getElementById('username').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            // Validate the form fields
+            if (username === '') {
+                alert('Please enter a username.');
+                return;
+            }
+
+            if (email === '') {
+                alert('Please enter an email.');
+                return;
+            }
+
+            if (password === '') {
+                alert('Please enter a password.');
+                return;
+            }
+
+            if (confirmPassword === '') {
+                alert('Please confirm your password.');
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                alert('Passwords do not match. Please try again.');
+                return;
+            }
+
+            // Store the user data in local storage (replace with real backend registration logic)
+            localStorage.setItem('username', username);
+            localStorage.setItem('email', email);
+            localStorage.setItem('password', password);
+
+            // Simple demo (replace with real signup logic)
+            alert('Sign up successful!');
+            // Redirect to the weather page
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Weather Forecast</title>
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <h2>Create an Account</h2>
+            <form id="signup-form">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Sign Up</button>
+            </form>
+            <p>Already have an account? <a href="login.html">Login</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('signup-form').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('http://localhost:3000/signup', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, email, password })
+                });
+
+                const data = await response.json();
+                if (response.ok) {
+                    alert(data.message);
+                    window.location.href = 'login.html';
+                } else {
+                    alert(data.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred during signup.');
+            }
+        });
+    </script>
+</body>
+</html>

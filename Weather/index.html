@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | WeatherApp</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <h2>WeatherApp</h2>
+        </div>
+        <div class="nav-right">
+            <a href="./index.html" class="nav-link">Home</a>
+            <a href="./login.html" class="nav-link">Login</a>
+        </div>
+    </nav>
+
+    <!-- Signup Form -->
+    <div class="form-container">
+        <h2>Sign Up</h2>
+        <form id="signup-form">
+            <input type="text" id="new-username" class="city-input" placeholder="Username" required>
+            <input type="password" id="new-password" class="city-input" placeholder="Password" required>
+            <button type="submit" class="get-weather-btn">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="./login.html">Login here</a></p>
+    </div>
+
+    <!-- 5-Day Forecast Section -->
+    <div id="forecast-container" class="forecast-container">
+        <!-- Forecast days will be appended here dynamically -->
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 WeatherApp. All Rights Reserved.</p>
+    </footer>
+
+    <script src="auth.js"></script>
+</body>
+</html>
